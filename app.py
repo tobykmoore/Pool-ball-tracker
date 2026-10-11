@@ -18,8 +18,11 @@ if save_match:
     if not player.strip():
         st.error("enter a player name first.")
     else:
-        with file_path.open("a", newline="") as file:
-            writer=csv.writer(file)
+        new_file = not file_path.exists() or file_path.stat().st_size ==0
+        with file_path.open("a",newline="")as file:
+            writer = csv.writer(file)
+            if new_file:
+                writer.writerow(["player","game_type","game_number","balls_made"])
             for game_number, balls in enumerate(ball_counts,start=1):
                 writer.writerow([player.strip(),game, game_number,balls])
         st.success("match saved!")
