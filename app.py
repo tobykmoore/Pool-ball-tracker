@@ -24,16 +24,16 @@ if st.button("sign up"):
         st.warning("Enter your email and password.")
 if st.button("log in"):
     if email and passward:
-    try:
-       supabase.auth.sign_in_with_passward({
-        "email": email,
-        "passward": passward
-       })
-       st.success("login successful!")
-    except Execption:
-         st.error("login failed. check your email and passward.")
+        try:
+            supabase.auth.sign_in_with_passward({
+                "email": email,
+                "passward": passward
+            })
+            st.success("login successful!")
+        except Execption:
+            st.error("login failed. check your email and passward.")
     else:
-    st.warning("Enter your email and passward.")
+        st.warning("Enter your email and passward.")
 
 player = st.text_input("Player name")
 game = st.selectbox("game type",["8 ball","9 ball"])
