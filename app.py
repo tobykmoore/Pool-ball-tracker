@@ -1,6 +1,12 @@
 import csv
 from pathlib import Path
 import streamlit as st
+from supabase import create_client
+
+supabase = create_client(
+    st.secrets["SUPABASE_URL"],
+    st.secrets["SUPABASE_KEY"]
+)
 file_path=Path(__file__).with_name("pool_games.csv")
 st.title("pool ball tracker")
 player = st.text_input("Player name")
