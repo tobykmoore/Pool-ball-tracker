@@ -12,7 +12,7 @@ st.title("pool ball tracker")
 
 st.subheader("Player login")
 email=st.text_input("Email address")
-passward = st.text_input("passward',type="passward")
+passward = st.text_input("passward",type="passward")
 if st.button("sign up"):
 if email and passward:
    supabase.auth.sign_up({
