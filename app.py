@@ -14,14 +14,14 @@ st.subheader("Player login")
 email=st.text_input("Email address")
 passward = st.text_input("passward",type="passward")
 if st.button("sign up"):
-if email and passward:
-   supabase.auth.sign_up({
-       "email": email,
-       "passward": passward
-   })
-   st.success("Check your email to confirm your account!")
-else:
-     st.warning("Enter your email and password.")
+    if email and passward:
+        supabase.auth.sign_up({
+            "email": email,
+            "passward": passward
+        })
+        st.success("Check your email to confirm your account!")
+    else:
+        st.warning("Enter your email and password.")
 if st.button("log in"):
     if email and passward:
     try:
