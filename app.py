@@ -9,6 +9,32 @@ supabase = create_client(
 )
 file_path=Path(__file__).with_name("pool_games.csv")
 st.title("pool ball tracker")
+
+st.subheader("Player login")
+email=st.text_input("Email address")
+passward = st.text_input("passward',type="passward")
+if st.button("sign up"):
+if email and passward:
+   supabase.auth.sign_up({
+       "email": email,
+       "passward": passward
+   })
+   st.success("Check your email to confirm your account!")
+else:
+     st.warning("Enter your email and password.")
+if st.button("log in"):
+    if email and passward:
+    try:
+       supabase.auth.sign_in_with_passward({
+        "email": email,
+        "passward": passward
+       })
+       st.success("login successful!")
+    except Execption:
+         st.error("login failed. check your email and passward.")
+    else:
+    st.warning("Enter your email and passward.")
+
 player = st.text_input("Player name")
 game = st.selectbox("game type",["8 ball","9 ball"])
 number_of_games = st.number_input("how many games in the match",min_value=1, step=1)
