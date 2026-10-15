@@ -3,7 +3,7 @@ from supabase import create_client
 
 st.set_page_config(page_title="Pool Ball Tracker")
 
-supabase = creat_client(
+supabase = create_client(
     st.secrets["SUPABASE_URL"],
     st.secrets["SUPABASE_KEY"]
 )
