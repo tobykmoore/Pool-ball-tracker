@@ -11,8 +11,8 @@ supabase = create_client(
 st.title("Pool Ball Tracker")
 st.subheader("Player Login")
 
-email = st.text_imput("Email address")
-password = st.text_imput("Password", type="password")
+email = st.text_input("Email address")
+password = st.text_input("Password", type="password")
 
 if st.button("Sign Up"):
     if email and password:
