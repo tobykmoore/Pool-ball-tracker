@@ -1,5 +1,5 @@
 import streamlit as st
-from supabase import creat_client
+from supabase import create_client
 
 st.set_page_config(page_title="Pool Ball Tracker")
 
