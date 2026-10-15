@@ -18,7 +18,7 @@ if st.button("Sign Up"):
     if email and password:
         try:
             supabase.auth.sign_up({
-                "email": email,
+                "email": email.strip(),
                 "passward": password
             })
             st.success("Check your email to confirm your account!")
