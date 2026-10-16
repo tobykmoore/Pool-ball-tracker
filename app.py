@@ -40,3 +40,16 @@ if st.button("Log In"):
                 st.error("Login Failed.")
         except Exception:
             st.error("Check your email and password.")
+
+if "user_id" in st.session_state:
+    st.divider()
+    st.subheader("Player Management")
+    
+    player_name = st.text_input("Enter player name")
+
+    if st.button("Add Player"):
+        if player_name.strip():
+            st.success(f"Player entered: {player_name.strip()}")
+        else:
+            st.warning("Please enter a player name.")
+    
