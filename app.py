@@ -49,7 +49,14 @@ if "user_id" in st.session_state:
 
     if st.button("Add Player"):
         if player_name.strip():
-            st.success(f"Player entered: {player_name.strip()}")
+       try:
+           supabase.table("players").insert({
+                "name": player_name.strip(),
+                "user_id": st.session_state["user_id']
+            }).execute()
+            st.success("Player saved successfully!")
+        except exception as e:
+            st.error(f"Could not save player: {e}")
         else:
             st.warning("Please enter a player name.")
     
