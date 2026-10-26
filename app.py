@@ -74,3 +74,11 @@ if "user_id" in st.session_state:
             st.info("No player saved yet.")
     except Exception as e:
         st.error(f"Could not load players: {e}")
+
+    st.divider()
+    st.subheader("Pool Game Tracker")
+
+    game_type = st.selectbox(
+        "Choose game type",
+        ["8-Ball", "9-Ball"]
+    )
