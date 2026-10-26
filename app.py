@@ -52,7 +52,7 @@ if "user_id" in st.session_state:
            try:
               supabase.table("players").insert({
                  "name": player_name.strip(),
-                 "user_id": st.session_state["user_id']
+                 "user_id": st.session_state["user_id"]
               }).execute()
               st.success("Player saved successfully!")
           except Exception as e:
