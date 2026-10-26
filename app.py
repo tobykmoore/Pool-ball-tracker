@@ -96,3 +96,12 @@ if "user_id" in st.session_state:
             value=0,
             step=1
         )
+        
+        games_in_match = st.number-input(
+            "How many games are in this match?",
+            min_value=1,
+            max_value=100,
+            value=1,
+            step=1
+        )
+        
