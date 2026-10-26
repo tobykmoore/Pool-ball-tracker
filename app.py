@@ -48,17 +48,16 @@ if "user_id" in st.session_state:
     
     player_name = st.text_input("Enter player name")
 
-if st.button("Add Player"):
-    if player_name.strip():
-       try:
-            supabase.postgrest.auth(st.session_state["access_token"])
-            supabase.table("players").insert({
-                "name": player_name.strip(),
-                "user_id": st.session_staet["user_id"]
-            }).execute()
-            st.success("Player saved successfully!")
-       except Exception as e:
-            st.error(f"Could not save player: {e}")
-     else:
-         st.warning("Please enter a player name.")
-    
+    if st.button("Add Player"):
+        if player_name.strip():
+            try:
+                supabase.postgrest.auth(st.session_state["access_token"])
+                supabase.table("player").insert({
+                    "name": player_name.strip()
+                    "user_id": st.session_state["user_id"]
+                }).execute()
+                st.success("Player saved successfully!")
+            except Exception as e
+                st.error(f"Could not save player: {e}")
+        else:
+            st.warning("Plase enter a player name.")
