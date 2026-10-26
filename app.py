@@ -51,7 +51,8 @@ if "user_id" in st.session_state:
     if st.button("Add Player"):
         if player_name.strip():
            try:
-              supabase.table("players").insert({
+               supabase.postgrest.auth(st.session_state["access_token"])
+               supabase.table("players").insert({
                  "name": player_name.strip(),
                  "user_id": st.session_state["user_id"]
               }).execute()
