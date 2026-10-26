@@ -105,3 +105,17 @@ if "user_id" in st.session_state:
             step=1
         )
         
+        st.subheader("Game-by-Game Scores")
+
+        game_scores = []
+
+        for game_number in rang(1, games_in_match + 1):
+            score = st.number_input(
+                f"Game {game_number} - balls made",
+                min_value=0,
+                max_value=9,
+                value=0,
+                step=1,
+                key=f"game_{game_number}"
+            )
+            game_scores.append(score)
