@@ -88,3 +88,11 @@ if "user_id" in st.session_state:
             "Choose player",
             [player["name"]for player in players.data]
         )
+
+        balls_made = st.number_input(
+            "How many balls did the player make?",
+            min_value=0,
+            max_value=9,
+            value=0,
+            step=1
+        )
