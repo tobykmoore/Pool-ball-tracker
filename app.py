@@ -35,6 +35,7 @@ if st.button("Log In"):
             })
             if response.user and response.session:
                 st.session_state["user_id"] = response.user.id
+                st.session_state["access_token"] = responce.session.access_token
                 st.success("Login succseeful!")
             else:
                 st.error("Login Failed.")
