@@ -39,8 +39,8 @@ if st.button("Log In"):
                 st.success("Login succseeful!")
             else:
                 st.error("Login Failed.")
-        except Exception:
-            st.error("Check your email and password.")
+        except Exception as e:
+            st.error(f"Login failed: {e}")
 
 if "user_id" in st.session_state:
     st.divider()
