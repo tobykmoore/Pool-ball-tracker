@@ -52,12 +52,12 @@ if "user_id" in st.session_state:
         if player_name.strip():
             try:
                 supabase.postgrest.auth(st.session_state["access_token"])
-                supabase.table("player").insert({
-                    "name": player_name.strip()
+                supabase.table("players").insert({
+                    "name": player_name.strip(),
                     "user_id": st.session_state["user_id"]
                 }).execute()
                 st.success("Player saved successfully!")
-            except Exception as e
+            except Exception as e:
                 st.error(f"Could not save player: {e}")
         else:
             st.warning("Plase enter a player name.")
