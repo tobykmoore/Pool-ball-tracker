@@ -61,3 +61,16 @@ if "user_id" in st.session_state:
                 st.error(f"Could not save player: {e}")
         else:
             st.warning("Plase enter a player name.")
+            
+     st.subheader("Saved Players")
+    try:
+        players = supabase.table("players").select("name").eq(
+            "user_id", st.session_state["user_id"]
+        ).execute()
+        if players.data:
+            for player in players.data:
+                st.write(player["name"])
+        else:
+            st.info("No player saved yet.")
+    except Exception as e:
+        st.error(f"Could not load players: {e}")
