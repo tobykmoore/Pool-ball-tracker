@@ -59,6 +59,6 @@ if st.button("Add Player"):
             st.success("Player saved successfully!")
        except Exception as e:
             st.error(f"Could not save player: {e}")
-        else:
-            st.warning("Please enter a player name.")
+     else:
+         st.warning("Please enter a player name.")
     
