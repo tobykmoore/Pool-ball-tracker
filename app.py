@@ -55,8 +55,8 @@ if "user_id" in st.session_state:
                  "user_id": st.session_state["user_id"]
               }).execute()
               st.success("Player saved successfully!")
-          except Exception as e:
+           except Exception as e:
               st.error(f"Could not save player: {e}")
-         else:
-             st.warning("Please enter a player name.")
+           else:
+              st.warning("Please enter a player name.")
     
