@@ -82,3 +82,9 @@ if "user_id" in st.session_state:
         "Choose game type",
         ["8-Ball", "9-Ball"]
     )
+
+    if players.data:
+        selected_player = st.selectbox(
+            "Choose player",
+            [player["name"]for player in players.data]
+        )
