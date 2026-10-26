@@ -62,7 +62,7 @@ if "user_id" in st.session_state:
         else:
             st.warning("Plase enter a player name.")
             
-     st.subheader("Saved Players")
+    st.subheader("Saved Players")
     try:
         players = supabase.table("players").select("name").eq(
             "user_id", st.session_state["user_id"]
